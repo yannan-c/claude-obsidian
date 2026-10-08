@@ -149,7 +149,7 @@ Cursor and Windsurf use workspace-local skill discovery. Marketplace setup,
 every supported host, vault adoption, upgrades, and uninstall steps are covered
 in the [full installation guide](docs/install-guide.md).
 
-## 16 skills, one system
+## 19 skills, one system
 
 The skills are small enough to invoke directly and coordinated enough to share
 the same evidence, vault-selection, and mutation rules.
@@ -170,8 +170,11 @@ the same evidence, vault-selection, and mutation rules.
 |---|---|
 | `autoresearch` | Bounded web research with explicit egress and a separate canonical merge |
 | `canvas` | Wiki-scoped Obsidian Canvas creation and maintenance |
+| `datacloud` | Data Cloud + RAG answers from a dedicated vault, cited from Slack and official docs |
 | `defuddle` | Clean, readable web content before ingestion |
 | `pdf-extract` | Local, offline PDF text extraction via an optional runner before ingestion |
+| `slack-digest` | Read-only dated digest of the latest messages across joined Slack channels |
+| `slack-skills` | Capture the latest reusable dev know-how colleagues share in Slack, with provenance |
 | `wiki-fold` | Extractive, traceable rollups of the operation log |
 | `wiki-mode` | Generic, LYT, PARA, or Zettelkasten filing conventions |
 | `wiki-retrieve` | Contextual prefixes, BM25, and optional cosine reranking |

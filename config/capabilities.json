@@ -81,6 +81,34 @@
       "verification_reason": "no automated behavioral verifier is implemented for JSON Canvas authoring"
     },
     {
+      "id": "datacloud",
+      "tier": "extension",
+      "implementation_paths": [
+        "skills/datacloud/SKILL.md"
+      ],
+      "read_scope": [
+        "plugin:skills/**",
+        "vault:wiki/**"
+      ],
+      "write_scope": [],
+      "needs": {
+        "shell": true,
+        "network": true
+      },
+      "transaction_type": "none",
+      "confirmation": {
+        "mutation": "not_applicable",
+        "network_egress": "explicit",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [],
+        "external_commands": []
+      },
+      "verification_command": [],
+      "verification_reason": "the Data Cloud/RAG workflow is a read-only, multi-source synthesis orchestration over consent-gated Slack and web transports and has no bundled behavioral verifier"
+    },
+    {
       "id": "defuddle",
       "tier": "extension",
       "implementation_paths": [
@@ -260,6 +288,75 @@
       },
       "verification_command": [],
       "verification_reason": "no automated end-to-end behavioral verifier is implemented for conversation-to-note save operations"
+    },
+    {
+      "id": "slack-digest",
+      "tier": "extension",
+      "implementation_paths": [
+        "skills/slack-digest/SKILL.md"
+      ],
+      "read_scope": [
+        "plugin:skills/**",
+        "vault:wiki/**"
+      ],
+      "write_scope": [],
+      "needs": {
+        "shell": true,
+        "network": true
+      },
+      "transaction_type": "none",
+      "confirmation": {
+        "mutation": "not_applicable",
+        "network_egress": "explicit",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [],
+        "external_commands": []
+      },
+      "verification_command": [],
+      "verification_reason": "the Slack daily digest is a read-only synthesis workflow over a consent-gated Slack MCP transport and has no bundled behavioral verifier"
+    },
+    {
+      "id": "slack-skills",
+      "tier": "extension",
+      "implementation_paths": [
+        "skills/slack-skills/SKILL.md",
+        "scripts/runners/slack_normalize.py"
+      ],
+      "read_scope": [
+        "plugin:skills/**",
+        "plugin:scripts/**",
+        "vault:.raw/**",
+        "vault:inbox/**"
+      ],
+      "write_scope": [
+        {
+          "pattern": "vault:.raw/**",
+          "access": "create_only"
+        }
+      ],
+      "needs": {
+        "shell": true,
+        "network": true
+      },
+      "transaction_type": "capture",
+      "confirmation": {
+        "mutation": "operation_scope",
+        "network_egress": "explicit",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [
+          {
+            "pattern": "plugin:scripts/runners/slack_normalize.py",
+            "kind": "file"
+          }
+        ],
+        "external_commands": []
+      },
+      "verification_command": [],
+      "verification_reason": "Slack know-how extraction reads through a consent-gated Slack MCP transport and delegates normalization to an offline runner that self-reports via --selfcheck; no bundled end-to-end behavioral verifier"
     },
     {
       "id": "think",
