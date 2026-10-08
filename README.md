@@ -149,7 +149,7 @@ Cursor and Windsurf use workspace-local skill discovery. Marketplace setup,
 every supported host, vault adoption, upgrades, and uninstall steps are covered
 in the [full installation guide](docs/install-guide.md).
 
-## 15 skills, one system
+## 16 skills, one system
 
 The skills are small enough to invoke directly and coordinated enough to share
 the same evidence, vault-selection, and mutation rules.
@@ -171,6 +171,7 @@ the same evidence, vault-selection, and mutation rules.
 | `autoresearch` | Bounded web research with explicit egress and a separate canonical merge |
 | `canvas` | Wiki-scoped Obsidian Canvas creation and maintenance |
 | `defuddle` | Clean, readable web content before ingestion |
+| `pdf-extract` | Local, offline PDF text extraction via an optional runner before ingestion |
 | `wiki-fold` | Extractive, traceable rollups of the operation log |
 | `wiki-mode` | Generic, LYT, PARA, or Zettelkasten filing conventions |
 | `wiki-retrieve` | Contextual prefixes, BM25, and optional cosine reranking |
@@ -224,7 +225,8 @@ machine-facing detail.
 |---|---|
 | Local filesystem sources | Implemented bounded, content-addressed byte capture |
 | Images | Metadata, hash, size, and bounded dimensions when available |
-| PDF and EPUB | Metadata, hash, and size; no built-in semantic extraction |
+| PDF | Metadata, hash, and size; local text extraction via an optional `pypdf`-based runner (`pdf-extract`), no egress |
+| EPUB | Metadata, hash, and size; no built-in semantic extraction |
 | URL and YouTube | Validated consent plans; a configured external runner is required |
 | OCR | Local-file consent plan; a configured external runner is required |
 | BM25 retrieval | Local and deterministic |

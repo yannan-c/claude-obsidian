@@ -62,7 +62,7 @@
     },
     {
       "id": "pdf",
-      "maturity": "metadata-only",
+      "maturity": "external-runner-required",
       "input": "local-file",
       "execution": "planned-command",
       "network": false,

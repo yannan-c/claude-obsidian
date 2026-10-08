@@ -186,6 +186,47 @@
       "verification_reason": "no automated behavioral verifier is implemented for the Obsidian Markdown reference workflow"
     },
     {
+      "id": "pdf-extract",
+      "tier": "extension",
+      "implementation_paths": [
+        "skills/pdf-extract/SKILL.md",
+        "scripts/runners/pdf_extract.py"
+      ],
+      "read_scope": [
+        "plugin:skills/**",
+        "plugin:scripts/**",
+        "vault:.raw/**",
+        "vault:inbox/**"
+      ],
+      "write_scope": [
+        {
+          "pattern": "vault:.raw/**",
+          "access": "create_only"
+        }
+      ],
+      "needs": {
+        "shell": true,
+        "network": false
+      },
+      "transaction_type": "capture",
+      "confirmation": {
+        "mutation": "operation_scope",
+        "network_egress": "not_applicable",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [
+          {
+            "pattern": "plugin:scripts/runners/pdf_extract.py",
+            "kind": "file"
+          }
+        ],
+        "external_commands": []
+      },
+      "verification_command": [],
+      "verification_reason": "the local pdf text extractor delegates to an external pypdf-based runner with no bundled behavioral verifier; the runner self-reports availability at execution time via --selfcheck"
+    },
+    {
       "id": "save",
       "tier": "core",
       "implementation_paths": [

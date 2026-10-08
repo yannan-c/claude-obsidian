@@ -67,6 +67,7 @@ Route the user's intent without silently broadening it:
 | Intent | Skill |
 |---|---|
 | Ingest supplied sources | `wiki-ingest` |
+| Extract text from a local PDF before ingestion | `pdf-extract` |
 | Answer from existing vault knowledge | `wiki-query` |
 | Save a specific conversation result | `save` |
 | Research the public web under a budget | `autoresearch` |
